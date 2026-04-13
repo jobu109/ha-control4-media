@@ -73,7 +73,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     await coordinator.async_config_entry_first_refresh()
 
     # Start websocket for real-time variable updates
-    websocket = C4Websocket(host, director_token, session)
+    # v2 API: token is passed at sio_connect(), not at init
+    websocket = C4Websocket(host, session_no_verify_ssl=session)
     coordinator.websocket = websocket
     await coordinator.async_start_websocket()
 
