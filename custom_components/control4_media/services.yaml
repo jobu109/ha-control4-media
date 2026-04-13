@@ -1,0 +1,62 @@
+group_zones:
+  name: Group Zones
+  description: >
+    Links one or more follower rooms to a leader room. On grouping, followers
+    immediately inherit the leader's current volume and audio source. Thereafter,
+    any volume, mute, or source change on the leader is mirrored to all followers
+    in real time via the websocket.
+  fields:
+    leader_room_id:
+      name: Leader Room ID
+      description: >
+        The Control4 item ID of the room that will lead the group.
+        Find this in Composer Pro by hovering over the room — it appears in the
+        tooltip, or use the diagnostic service below to list all room IDs.
+      required: true
+      example: 42
+      selector:
+        number:
+          min: 1
+          max: 99999
+          mode: box
+    follower_room_ids:
+      name: Follower Room IDs
+      description: >
+        List of Control4 item IDs for the rooms that will follow the leader.
+        Separate multiple IDs with commas in YAML list format.
+      required: true
+      example: "[55, 67, 89]"
+      selector:
+        object:
+
+ungroup_zones:
+  name: Ungroup Zones
+  description: >
+    Removes the specified rooms from any zone group, whether they are leaders or
+    followers. If a leader is ungrouped, all its followers are also released.
+  fields:
+    room_ids:
+      name: Room IDs
+      description: List of Control4 item IDs to remove from their group.
+      required: true
+      example: "[42, 55]"
+      selector:
+        object:
+
+sync_volume_to_group:
+  name: Sync Volume to Group
+  description: >
+    Immediately pushes the leader room's current volume level to all of its
+    follower rooms. Useful after manually adjusting a follower's volume and
+    wanting to re-align the group.
+  fields:
+    leader_room_id:
+      name: Leader Room ID
+      description: The Control4 item ID of the group leader whose volume will be broadcast.
+      required: true
+      example: 42
+      selector:
+        number:
+          min: 1
+          max: 99999
+          mode: box

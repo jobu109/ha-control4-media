@@ -1,0 +1,69 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Control4",
+        "description": "Enter your Control4 account credentials and the local IP address of your controller.",
+        "data": {
+          "username": "Control4 Account Email",
+          "password": "Password",
+          "host": "Controller IP Address"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to reach the Control4 Director. Check the IP address and that the controller is online.",
+      "invalid_auth": "Authentication failed. Check your Control4 account email and password.",
+      "unknown": "Unexpected error. Check the Home Assistant logs."
+    },
+    "abort": {
+      "already_configured": "This Control4 controller is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Control4 Media Options",
+        "data": {
+          "include_hidden_rooms": "Include hidden rooms"
+        }
+      }
+    }
+  },
+  "services": {
+    "group_zones": {
+      "name": "Group Zones",
+      "description": "Links follower rooms to a leader room so they mirror volume and source selection.",
+      "fields": {
+        "leader_room_id": {
+          "name": "Leader Room ID",
+          "description": "The Control4 item ID of the room to lead the group."
+        },
+        "follower_room_ids": {
+          "name": "Follower Room IDs",
+          "description": "List of Control4 item IDs to follow the leader."
+        }
+      }
+    },
+    "ungroup_zones": {
+      "name": "Ungroup Zones",
+      "description": "Removes the specified rooms from any zone group.",
+      "fields": {
+        "room_ids": {
+          "name": "Room IDs",
+          "description": "List of Control4 item IDs to ungroup."
+        }
+      }
+    },
+    "sync_volume_to_group": {
+      "name": "Sync Volume to Group",
+      "description": "Force the leader room's current volume out to all followers immediately.",
+      "fields": {
+        "leader_room_id": {
+          "name": "Leader Room ID",
+          "description": "The Control4 item ID of the leader room."
+        }
+      }
+    }
+  }
+}

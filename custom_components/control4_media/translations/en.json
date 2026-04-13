@@ -1,0 +1,41 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Control4",
+        "description": "Enter your Control4 account credentials and the **local IP address** of your controller (e.g. `192.168.1.25`). The controller IP can be found in Composer Pro or the Control4 app under Settings → Controller.",
+        "data": {
+          "username": "Control4 Account Email",
+          "password": "Password",
+          "host": "Controller IP Address"
+        },
+        "data_description": {
+          "username": "The email address you use to log into the Control4 app.",
+          "password": "Your Control4 account password.",
+          "host": "Local IP address of your Control4 controller — NOT the cloud address."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to reach the Control4 Director. Verify the IP address and that the controller is reachable on your network.",
+      "invalid_auth": "Authentication failed. Double-check your Control4 account email and password.",
+      "unknown": "An unexpected error occurred. Check the Home Assistant logs for details."
+    },
+    "abort": {
+      "already_configured": "This Control4 controller is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Control4 Media Options",
+        "data": {
+          "include_hidden_rooms": "Include hidden rooms"
+        },
+        "data_description": {
+          "include_hidden_rooms": "When enabled, rooms that are hidden in the Control4 Navigator UI will still appear as entities in Home Assistant."
+        }
+      }
+    }
+  }
+}

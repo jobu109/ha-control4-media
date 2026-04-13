@@ -1,0 +1,45 @@
+"""Constants for the Control4 Media integration."""
+
+DOMAIN = "control4_media"
+SCAN_INTERVAL = 30  # seconds for polling fallback
+
+# Variable names polled from C4 Director
+VAR_VOLUME = "CURRENT_VOLUME"
+VAR_MUTED = "IS_MUTED"
+VAR_POWER = "POWER_STATE"
+VAR_CURRENT_AUDIO_SOURCE = "CURRENT_SELECTED_DEVICE"
+VAR_CURRENT_VIDEO_SOURCE = "CURRENT_SELECTED_DEVICE"
+VAR_ROOM_HIDDEN = "ROOM_HIDDEN"
+
+# Commands
+CMD_SET_VOLUME = "SET_VOLUME_LEVEL"
+CMD_MUTE_ON = "MUTE_ON"
+CMD_MUTE_OFF = "MUTE_OFF"
+CMD_MUTE_TOGGLE = "MUTE_TOGGLE"
+CMD_ROOM_OFF = "ROOM_OFF"
+CMD_SELECT_AUDIO = "SELECT_AUDIO_DEVICE"
+CMD_SELECT_VIDEO = "SELECT_VIDEO_DEVICE"
+CMD_PLAY = "PLAY"
+CMD_PAUSE = "PAUSE"
+CMD_STOP = "STOP"
+
+# Config keys
+CONF_INCLUDE_HIDDEN_ROOMS = "include_hidden_rooms"
+CONF_ZONE_GROUPS = "zone_groups"
+
+# Source type identifiers returned by get_ui_configuration
+AUDIO_SOURCE_TYPES = {
+    "DIGITAL_AUDIO_SERVER",
+    "AUDIO_SELECTION",
+    "TUNER",
+    "CD_CHANGER",
+    "MUSIC_SERVICE",
+}
+VIDEO_SOURCE_TYPES = {
+    "HDMI",
+    "VIDEO_SELECTION",
+    "SATELLITE",
+    "CABLE",
+    "DISC_CHANGER",
+    "APPLE_TV",
+}

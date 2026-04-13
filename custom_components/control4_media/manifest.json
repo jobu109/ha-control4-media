@@ -1,0 +1,15 @@
+{
+  "domain": "control4_media",
+  "name": "Control4 Media",
+  "version": "1.0.0",
+  "documentation": "https://github.com/your-repo/ha-control4-media",
+  "issue_tracker": "https://github.com/your-repo/ha-control4-media/issues",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": ["pyControl4>=1.5.0"],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "homekit": {},
+  "ssdp": [],
+  "zeroconf": []
+}
